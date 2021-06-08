@@ -13,15 +13,47 @@ describe('copyAndPush', () => {
     const newArray = copyAndPush(numbers, 4);
     expect(newArray).toEqual([1, 2, 3, 4]);
   });
-
 });
+
 describe('capitalizeAndFilter', () => {
   it('returns an array of strings with capitalized letters excluding any strings starting with letter f', () => {
     const stringArray = ['the',   'quick', 'brown', 'fox', 'jumps', 'over', 'the',   'lazy', 'dog'
     ];
     const newArray = capitalizeAndFilter(stringArray);
-
     expect(newArray).toEqual(['THE',   'QUICK', 'BROWN', 'JUMPS', 'OVER', 'THE',   'LAZY', 'DOG']);
   });
+});
+
+describe('fetchQuotes', () => {
+  it('returns an object with a single quote containing name, text, and image property', async () => {
+    const quoteOne = await fetchQuotes(1);
+    const quoteTwo = await fetchQuotes(2);
+    const quoteThree = await fetchQuotes(3);
+    expect(quoteOne).toEqual(
+      {
+        name: expect.any(String),
+        text: expect.any(String),
+        image: expect.any(String)
+      }
+    );
+
+    expect(quoteTwo).toEqual(
+      {
+        name: expect.any(String),
+        text: expect.any(String),
+        image: expect.any(String)
+      }
+    );
+    
+    expect(quoteThree).toEqual(
+      {
+        name: expect.any(String),
+        text: expect.any(String),
+        image: expect.any(String)
+      }
+    );
+    
+  });
+  
 
 });

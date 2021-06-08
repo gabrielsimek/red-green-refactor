@@ -1,4 +1,4 @@
-import { getName, copyAndPush, capitalizeAndFilter, fetchQuotes } from './red-green-refactor.js';
+import { getName, copyAndPush, capitalizeAndFilter, fetchQuotes, formatQuote } from './red-green-refactor.js';
 describe('getName', () => {
   it('returns the name property of an object', () => {
     const spot = { name: 'spot', age: 5, weight: '20 lbs' };
@@ -28,11 +28,13 @@ describe('capitalizeAndFilter', () => {
     expect(newArrayTwo).toEqual(['THE',   'QUICK', 'BROWN', 'AND', 'JUMPS', 'OVER', 'THE',   'LAZY', 'DOG']);
   });
 });
+jest.mock('./fetchQuotes.js');
 
 describe('fetchQuotes', () => {
   it('returns an object with a single quote containing name, text, and image property', async () => {
     const quote = await fetchQuotes(1);
-    expect(quote).toEqual(
+    const formattedQuote = formatQuote(quote);
+    expect(formattedQuote).toEqual(
       {
         name: expect.any(String),
         text: expect.any(String),
@@ -41,3 +43,16 @@ describe('fetchQuotes', () => {
     );
   });
 });
+
+// describe('fetchQuotes', () => {
+//   it('returns an object with a single quote containing name, text, and image property', async () => {
+//     const quote = await fetchQuotes(1);
+//     expect(quote).toEqual(
+//       {
+//         name: expect.any(String),
+//         text: expect.any(String),
+//         image: expect.any(String)
+//       }
+//     );
+//   });
+// });

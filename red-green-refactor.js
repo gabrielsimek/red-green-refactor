@@ -20,8 +20,11 @@ export function capitalizeAndFilter(array) {
 //   return newArray;
 export async function fetchQuotes(number) {
   const response = await request.get(`http://futuramaapi.herokuapp.com/api/quotes/${number}`);
-  const { character, quote, image } = response.body[0];
-  return { 
+  return response.body[0];
+}
+
+export function formatQuote({ character, quote, image }) {
+  return {
     name: character,
     text: quote,
     image

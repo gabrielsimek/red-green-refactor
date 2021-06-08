@@ -1,4 +1,4 @@
-import { getName, copyAndPush, capitalizeAndFilter } from './red-green-refactor.js';
+import { getName, copyAndPush, capitalizeAndFilter, fetchQuotes } from './red-green-refactor.js';
 describe('getName', () => {
   it('returns the name property of an object', () => {
     const spot = { name: 'spot', age: 5, weight: '20 lbs' };
@@ -26,33 +26,15 @@ describe('capitalizeAndFilter', () => {
 
 describe('fetchQuotes', () => {
   it('returns an object with a single quote containing name, text, and image property', async () => {
-    const quoteOne = await fetchQuotes(1);
-    const quoteTwo = await fetchQuotes(2);
-    const quoteThree = await fetchQuotes(3);
-    expect(quoteOne).toEqual(
-      {
-        name: expect.any(String),
-        text: expect.any(String),
-        image: expect.any(String)
-      }
-    );
+    const quote = await fetchQuotes(1);
 
-    expect(quoteTwo).toEqual(
+    expect(quote).toEqual(
       {
         name: expect.any(String),
         text: expect.any(String),
         image: expect.any(String)
       }
     );
-    
-    expect(quoteThree).toEqual(
-      {
-        name: expect.any(String),
-        text: expect.any(String),
-        image: expect.any(String)
-      }
-    );
-    
   });
   
 

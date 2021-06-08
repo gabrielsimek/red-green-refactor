@@ -13,11 +13,6 @@ export function capitalizeAndFilter(array) {
   });
 }
 
-//   const newArray = [];
-//   for(let i = 0; i < array.length; i++){
-//     if(array[i][0].toLowerCase() !== 'f') newArray.push(array[i].toUpperCase());
-//   }     
-//   return newArray;
 export async function fetchQuotes(number) {
   const response = await request.get(`http://futuramaapi.herokuapp.com/api/quotes/${number}`);
   return response.body[0];

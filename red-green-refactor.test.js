@@ -28,7 +28,7 @@ describe('capitalizeAndFilter', () => {
     expect(newArrayTwo).toEqual(['THE',   'QUICK', 'BROWN', 'AND', 'JUMPS', 'OVER', 'THE',   'LAZY', 'DOG']);
   });
 });
-jest.mock('./fetchQuotes.js');
+
 
 describe('fetchQuotes', () => {
   it('returns an object with a single quote containing name, text, and image property', async () => {
@@ -44,15 +44,3 @@ describe('fetchQuotes', () => {
   });
 });
 
-// describe('fetchQuotes', () => {
-//   it('returns an object with a single quote containing name, text, and image property', async () => {
-//     const quote = await fetchQuotes(1);
-//     expect(quote).toEqual(
-//       {
-//         name: expect.any(String),
-//         text: expect.any(String),
-//         image: expect.any(String)
-//       }
-//     );
-//   });
-// });

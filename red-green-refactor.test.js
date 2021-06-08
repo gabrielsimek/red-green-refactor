@@ -17,17 +17,21 @@ describe('copyAndPush', () => {
 
 describe('capitalizeAndFilter', () => {
   it('returns an array of strings with capitalized letters excluding any strings starting with letter f', () => {
-    const stringArray = ['the',   'quick', 'brown', 'fox', 'jumps', 'over', 'the',   'lazy', 'dog'
+    const stringArrayOne = ['the',   'quick', 'brown', 'fox', 'jumps', 'over', 'the',   'lazy', 'dog'
     ];
-    const newArray = capitalizeAndFilter(stringArray);
-    expect(newArray).toEqual(['THE',   'QUICK', 'BROWN', 'JUMPS', 'OVER', 'THE',   'LAZY', 'DOG']);
+    const stringArrayTwo = ['The',   'quick', 'brown', 'AND', 'Fast', 'fox', 'jumps', 'over', 'the',   'lazy', 'dog', 'FOO'
+    ];
+    const newArrayOne = capitalizeAndFilter(stringArrayOne);
+    const newArrayTwo = capitalizeAndFilter(stringArrayTwo);
+
+    expect(newArrayOne).toEqual(['THE',   'QUICK', 'BROWN', 'JUMPS', 'OVER', 'THE',   'LAZY', 'DOG']);
+    expect(newArrayTwo).toEqual(['THE',   'QUICK', 'BROWN', 'AND', 'JUMPS', 'OVER', 'THE',   'LAZY', 'DOG']);
   });
 });
 
 describe('fetchQuotes', () => {
   it('returns an object with a single quote containing name, text, and image property', async () => {
     const quote = await fetchQuotes(1);
-
     expect(quote).toEqual(
       {
         name: expect.any(String),
@@ -36,6 +40,4 @@ describe('fetchQuotes', () => {
       }
     );
   });
-  
-
 });

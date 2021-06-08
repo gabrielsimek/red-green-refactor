@@ -3,6 +3,5 @@ export function getName({ name }) {
 }
 
 export function copyAndPush(array, number) {
-  array.push(number);
-  return array;
+  return [...array, number];
 }

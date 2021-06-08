@@ -15,3 +15,13 @@ describe('copyAndPush', () => {
   });
 
 });
+describe('capitalizeAndFilter', () => {
+  it('returns an array of strings with capitalized letters excluding any strings starting with letter f', () => {
+    const stringArray = ['the',   'quick', 'brown', 'fox', 'jumps', 'over', 'the',   'lazy', 'dog'
+    ];
+
+    const newArray = capitalizeAndFilter(stringArray);
+    expect(newArray).toEqual(['THE',   'QUICK', 'BROWN', 'JUMPS', 'OVER', 'THE',   'LAZY', 'DOG']);
+  });
+
+});
